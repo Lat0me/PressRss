@@ -22,7 +22,6 @@ require_once "function/fluxRss/rss.php";
             crossorigin="anonymous"></script>
 </head>
 <body>
-
 <!--Header -->
 <div class="card text-center">
     <div class="card-block">
