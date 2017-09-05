@@ -1,0 +1,11 @@
+Hitek
+http://hitek.fr/rss
+
+Ça m’intéresse
+http://www.caminteresse.fr/feed/
+
+01 net
+http://www.01net.com/rss/actualites/culture-medias/
+
+20minutes
+http://feeds.feedburner.com/20minutes-ActuHightech?format=xml
