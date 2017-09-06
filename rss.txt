@@ -9,3 +9,17 @@ http://www.01net.com/rss/actualites/culture-medias/
 
 20minutes
 http://feeds.feedburner.com/20minutes-ActuHightech?format=xml
+
+////
+
+Air et Cosmos
+http://www.air-cosmos.com/rss/air-cosmos.xml
+
+Sciences et Avenir
+http://www.sciencesetavenir.fr/rss.xml
+
+Science-Presse
+http://www.sciencepresse.qc.ca/rss.xml
+
+CNRS Le journal
+https://lejournal.cnrs.fr/rss
