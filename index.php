@@ -44,7 +44,7 @@ session_start();
                 </div>
                 <div class="col-sm-2">
                     <?php
-                    if(isset($_SESSION['pseudo'])){
+                    if (isset($_SESSION['pseudo'])) {
                         echo "<div style='display:none;'>";
                     }
                     ?>
@@ -52,7 +52,8 @@ session_start();
                     <form method="post" action="index.php">
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                placeholder="E-mail" name="mail"><br>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mots de passe"
+                        <input type="password" class="form-control" id="exampleInputPassword1"
+                               placeholder="Mots de passe"
                                name="password"><br>
                         <button type="submit" class="btn btn-primary" name="connexion">Connexion</button>
                     </form>
@@ -66,7 +67,7 @@ session_start();
                     ?>
                     <a href="inscription.php">Inscription</a>
                     <?php
-                    if(isset($_SESSION['pseudo'])){
+                    if (isset($_SESSION['pseudo'])) {
                         echo "</div>";
                     }
                     ?>
@@ -77,12 +78,11 @@ session_start();
 </div>
 
 
-
 <!--Choix du Thèmes -->
 <div id="continuer"></div>
 <ul class="nav nav-tabs justify-content-center" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#Technologie" role="tab">Technologie</a>
+        <a class="nav-link" data-toggle="tab" href="#Technologie" role="tab">Technologie</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#Science" role="tab">Science</a>
@@ -102,7 +102,7 @@ session_start();
 <!--Choix du journal -->
 <div class="tab-content">
     <!-- Technologie -->
-    <div class="tab-pane active" id="Technologie" role="tabpanel">
+    <div class="tab-pane" id="Technologie" role="tabpanel">
         <div class="container-fluid">
             <div class="row">
 
@@ -164,26 +164,56 @@ session_start();
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3">
-                    <div class="card card-block h-100 justify-content-center">
-                        <div class="card-block">
-                            <center>
-                                <h3 class="card-title">Air et Cosmos</h3>
+                    <a href="index.php?page=5">
+                        <div class="card card-block h-100 justify-content-center">
+                            <div class="card-block">
+                                <center>
+                                    <h3 class="card-title">Air et Cosmos</h3>
 
-                                <img src="image/aircosmos/aircosmos.png" alt="Smiley face" height="50" width="50">
-                            </center>
+                                    <img src="image/aircosmos/aircosmos.png" alt="Smiley face" height="50" width="50">
+                                </center>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-sm-3">
-                    <div class="card card-block h-100 justify-content-center">
-                        <div class="card-block">
-                            <center>
-                                <h3 class="card-title">Sciences et Avenir</h3>
+                    <a href="index.php?page=6">
+                        <div class="card card-block h-100 justify-content-center">
+                            <div class="card-block">
+                                <center>
+                                    <h3 class="card-title">Sciences et Avenir</h3>
 
-                                <img src="image/scienceav/sciencea.jpg" alt="Smiley face" height="50" width="50">
-                            </center>
+                                    <img src="image/scienceav/sciencea.jpg" alt="Smiley face" height="50" width="50">
+                                </center>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="index.php?page=7">
+                        <div class="card card-block h-100 justify-content-center">
+                            <div class="card-block">
+                                <center>
+                                    <h3 class="card-title">CNRS Le journal</h3>
+
+                                    <img src="image/crns/cnrs-lejournal-140.jpg" alt="Smiley face" height="50" width="50">
+                                </center>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="index.php?page=8">
+                        <div class="card card-block h-100 justify-content-center">
+                            <div class="card-block">
+                                <center>
+                                    <h3 class="card-title">Science-Presse</h3>
+
+                                    <img src="image/asp/asp.png" alt="Smiley face" height="50" width="50">
+                                </center>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -235,37 +265,51 @@ session_start();
             <div class="card">
                 <div class="card-block">
                     <?php
-                    if(!isset($_SESSION['pseudo'])){
+                    if (!isset($_SESSION['pseudo'])) {
                         echo "<div style='display:none;'>";
                     }
                     ?>
                     <div class="container-fluid">
                         <div class="row">
                             <?php
-                            if (isset($_GET['page'])) {
-                                $page = $_GET['page'];
-                            } else {
-                                $page = 0;
-                            }
-                            switch ($page) {
-                                case 1:
-                                    include("Journal/20minutes.php");
-                                    break;
-                                case 2:
-                                    include("Journal/lemonde.php");
-                                    break;
-                                case 3:
-                                    include("Journal/01net.php");
-                                    break;
-                                case 4:
-                                    include("Journal/Hitek.php");
-                                    break;
+                            if (isset($_SESSION['pseudo'])) {
+                                if (isset($_GET['page'])) {
+                                    $page = $_GET['page'];
+                                } else {
+                                    $page = 0;
+                                }
+                                switch ($page) {
+                                    case 1:
+                                        include("Journal/20minutes.php");
+                                        break;
+                                    case 2:
+                                        include("Journal/lemonde.php");
+                                        break;
+                                    case 3:
+                                        include("Journal/01net.php");
+                                        break;
+                                    case 4:
+                                        include("Journal/Hitek.php");
+                                        break;
+                                    case 5:
+                                        include("Journal/aircosmos.php");
+                                        break;
+                                    case 6:
+                                        include("Journal/scienceav.php");
+                                        break;
+                                    case 7:
+                                        include("Journal/crns.php");
+                                        break;
+                                    case 8:
+                                        include("Journal/sciencepress.php");
+                                        break;
+                                }
                             }
                             ?>
                         </div>
                     </div>
                     <?php
-                    if(!isset($_SESSION['pseudo'])){
+                    if (!isset($_SESSION['pseudo'])) {
                         echo "</div>";
                     }
                     ?>

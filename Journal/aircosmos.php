@@ -2,12 +2,13 @@
     <div class="card card-block h-100 justify-content-center">
         <div class="card-block">
             <center>
-                <h3 class="card-title">Hitek</h3>
-                <img src="image/hitek/hitek.jpg" alt="Smiley face" height="50" width="50">
+                <h3 class="card-title">Air et Cosmos</h3>
+
+                <img src="image/aircosmos/aircosmos.png" alt="Smiley face" height="50" width="50">
             </center>
         </div>
     </div>
 </div>
 <?php
-$urlJournal = "http://hitek.fr/rss";
+$urlJournal = "http://www.air-cosmos.com/rss/air-cosmos.xml";
 rssArticle($urlJournal);
