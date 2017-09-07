@@ -2,12 +2,13 @@
     <div class="card card-block h-100 justify-content-center">
         <div class="card-block">
             <center>
-                <h3 class="card-title">Hitek</h3>
-                <img src="image/hitek/hitek.jpg" alt="Smiley face" height="50" width="50">
+                <h3 class="card-title">Sciences et Avenir</h3>
+
+                <img src="image/scienceav/sciencea.jpg" alt="Smiley face" height="50" width="50">
             </center>
         </div>
     </div>
 </div>
 <?php
-$urlJournal = "http://hitek.fr/rss";
+$urlJournal = "http://www.sciencesetavenir.fr/rss.xml";
 rssArticle($urlJournal);
