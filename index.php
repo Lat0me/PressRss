@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset="utf-8"/>
     <title>Home - Press.fr</title>
-    <link rel="shortcut icon" type="image/x-icon" href=""/>
+    <link rel="shortcut icon" type="image/x-icon" href="image/favicon.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -222,7 +222,18 @@ session_start();
     <div class="tab-pane" id="Sport" role="tabpanel">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-sm-3">
+                    <a href="index.php?page=9">
+                        <div class="card card-block h-100 justify-content-center">
+                            <div class="card-block">
+                                <center>
+                                    <h3 class="card-title">L'équipe</h3>
 
+                                    <img src="image/lequipe/lequipelogo.png" alt="Smiley face" height="50" width="50">
+                                </center>
+                            </div>
+                        </div>
+                    </a>
             </div>
         </div>
     </div>
@@ -255,10 +266,19 @@ session_start();
             echo "<h4>" . $pseudo . "</h4>"
             ?>
             <nav class="nav flex-column">
-                <a class="nav-link active" href="#">Active</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <?php
+                if (isset($_SESSION['pseudo'])) {
+                    echo"
+                <a class=\"nav-link active\" href=\"#\">Articles enregistré </a>";
+                }
+                ?>
+
+                <?php
+                if (!isset($_SESSION['pseudo'])) {
+                    echo"<a class=\"nav-link disabled\" href=\"#\">Votre profil ici !</a>";
+                }
+                ?>
+
             </nav>
         </div>
         <div class="col-sm-11">
@@ -302,6 +322,9 @@ session_start();
                                         break;
                                     case 8:
                                         include("Journal/sciencepress.php");
+                                        break;
+                                    case 9:
+                                        include("Journal/lequipe.php");
                                         break;
                                 }
                             }
