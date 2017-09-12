@@ -12,3 +12,6 @@
 <?php
 $urlJournal = "http://www.sciencepresse.qc.ca/rss.xml";
 rssArticle($urlJournal);
+require_once "database/database.php";
+$id = 9;
+saveArticle ($urlJournal, $id, $db_connection);

@@ -11,3 +11,6 @@
 <?php
 $urlJournal = "http://www.lemonde.fr/technologies/rss_full.xml";
 rssArticle($urlJournal);
+require_once "database/database.php";
+$id = 6;
+saveArticle ($urlJournal, $id, $db_connection);

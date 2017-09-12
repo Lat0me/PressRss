@@ -11,3 +11,6 @@
 <?php
 $urlJournal = "http://hitek.fr/rss";
 rssArticle($urlJournal);
+require_once "database/database.php";
+$id = 5;
+saveArticle ($urlJournal, $id, $db_connection);

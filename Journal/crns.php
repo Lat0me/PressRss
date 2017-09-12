@@ -12,3 +12,6 @@
 <?php
 $urlJournal = "https://lejournal.cnrs.fr/rss";
 rssArticle($urlJournal);
+require_once "database/database.php";
+$id = 4;
+saveArticle ($urlJournal, $id, $db_connection);

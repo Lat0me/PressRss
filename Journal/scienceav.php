@@ -12,3 +12,6 @@
 <?php
 $urlJournal = "http://www.sciencesetavenir.fr/rss.xml";
 rssArticle($urlJournal);
+require_once "database/database.php";
+$id = 8;
+saveArticle ($urlJournal, $id, $db_connection);

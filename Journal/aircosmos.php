@@ -12,3 +12,6 @@
 <?php
 $urlJournal = "http://www.air-cosmos.com/rss/air-cosmos.xml";
 rssArticle($urlJournal);
+require_once "database/database.php";
+$id = 3;
+saveArticle ($urlJournal, $id, $db_connection);
