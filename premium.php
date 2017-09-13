@@ -1,19 +1,20 @@
 <!doctype html>
 <?php
-require_once "function/fluxRss/rss.php";
+require_once "function/article/article.php";
+#require_once "function/fluxRss/rss.php";
 require_once "function/database/database.php";
 require_once "function/connexion/connexion.php";
 
 session_start();
+if (!isset($_SESSION['pseudo'])) {
+    header('location: index.php');
+}
 
-$search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
 ?>
-
-
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
-    <title>Home - Press.fr</title>
+    <title>Abonné - press.fr</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
@@ -44,7 +45,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                 <div class="col-sm-2">
                 </div>
                 <div class="col-sm-8">
-                    <h4 class="card-title">Press.fr</h4>
+                    <h4 class="card-title">press.fr</h4>
                     <p class="card-text">
                         <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#32fffe"></i>
                         <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#4deefe"></i>
@@ -72,7 +73,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
 <div id="continuer"></div>
 <ul class="nav nav-tabs justify-content-center" role="tablist" id="navTheme">
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#Technologie" id="textColorNavs" role="tab">Technologie</a>
+        <a class="nav-link active" data-toggle="tab" href="#Technologie" id="textColorNavs" role="tab">Technologie</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#Science" id="textColorNavs" role="tab">Science</a>
@@ -98,12 +99,12 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
 <!--Choix du journal -->
 <div class="tab-content" id="journal">
     <!-- Technologie -->
-    <div class="tab-pane" id="Technologie" role="tabpanel">
+    <div class="tab-pane active" id="Technologie" role="tabpanel">
         <div class="container-fluid">
             <div class="row">
 
                 <div class="col-sm-3">
-                    <a href="index.php?page=1">
+                    <a href="premium.php?page=1">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -117,7 +118,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                 </div>
 
                 <div class="col-sm-3">
-                    <a href="index.php?page=2">
+                    <a href="premium.php?page=2">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -129,7 +130,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=3">
+                    <a href="premium.php?page=3">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -141,7 +142,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=4">
+                    <a href="premium.php?page=4">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -160,7 +161,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3">
-                    <a href="index.php?page=5">
+                    <a href="premium.php?page=5">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -173,7 +174,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=6">
+                    <a href="premium.php?page=6">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -186,7 +187,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=7">
+                    <a href="premium.php?page=7">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -199,7 +200,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=8">
+                    <a href="premium.php?page=8">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -219,7 +220,7 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3">
-                    <a href="index.php?page=9">
+                    <a href="premium.php?page=9">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -251,8 +252,6 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
         </div>
     </div>
     <br>
-
-
     <!-- Menu -->
     <div class="container-fluid">
         <div class="row">
@@ -268,16 +267,16 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                     <?php
                     if (isset($_SESSION['pseudo'])) {
                         echo"
+                <a class=\"nav-link active\" href=\"index.php\">Accueil </a>
+                <a class=\"nav - link active\" href=\"premium . php\">100% Abonné</a>
                 <a class=\"nav-link active\" href=\"#\">Articles enregistré </a>";
                     }
                     ?>
-
                     <?php
                     if (!isset($_SESSION['pseudo'])) {
                         echo"<a class=\"nav-link disabled\" href=\"#\">Votre profil ici !</a>";
                     }
                     ?>
-
                 </nav>
             </div>
             <div class="col-sm-11">
@@ -293,31 +292,31 @@ $search = "<i class=\"fa fa-search\" aria-hidden=\"true\"></i>"
                                 }
                                 switch ($page) {
                                     case 1:
-                                        include("Journal/20minutes.php");
+                                        include("journal_premium/20minutes.php");
                                         break;
                                     case 2:
-                                        include("Journal/lemonde.php");
+                                        include("journal_premium/lemonde.php");
                                         break;
                                     case 3:
-                                        include("Journal/01net.php");
+                                        include("journal_premium/01net.php");
                                         break;
                                     case 4:
-                                        include("Journal/Hitek.php");
+                                        include("journal_premium/Hitek.php");
                                         break;
                                     case 5:
-                                        include("Journal/aircosmos.php");
+                                        include("journal_premium/aircosmos.php");
                                         break;
                                     case 6:
-                                        include("Journal/scienceav.php");
+                                        include("journal_premium/scienceav.php");
                                         break;
                                     case 7:
-                                        include("Journal/crns.php");
+                                        include("journal_premium/crns.php");
                                         break;
                                     case 8:
-                                        include("Journal/sciencepress.php");
+                                        include("journal_premium/sciencepress.php");
                                         break;
                                     case 9:
-                                        include("Journal/lequipe.php");
+                                        include("journal_premium/lequipe.php");
                                         break;
                                 }
                                 ?>

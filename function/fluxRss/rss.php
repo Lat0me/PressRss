@@ -40,12 +40,14 @@ function saveArticle ($urlJournal, $id, $db_connection)
         $date = date_format($datetime, 'd M Y, H');
         $title = $item->title;
         $link = $item->link;
+        $description = $item->description;
+        $desc = mysqli_real_escape_string($db_connection, $description);
         $titre = mysqli_real_escape_string($db_connection, $title);
         $i++;
 
-        $requete = "INSERT INTO article VALUES (NULL, '" . $id . "', '" . $link . "', '" . $titre . "', '"  . $date .  "');";
+        $requete = "INSERT INTO article VALUES (NULL, '" . $id . "', '" . $link . "', '" . $titre . "', '" . $desc . "', '"  . $date .  "');";
         // execution de la requte avec des résultats
-        $req = mysqli_query($db_connection, $requete) or die();
+        $req = mysqli_query($db_connection, $requete);//or die('Erreur SQL !<br />' . $requete . '<br />' . mysqli_error($db_connection));
 
     }
 }

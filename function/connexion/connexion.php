@@ -47,7 +47,6 @@ mail="' . $mail . '" AND mots_de_passe="' . md5($password) . '";';
         $_SESSION['nom'] = nom($mail, $password, $db_connection);
         $_SESSION['prenom'] = prenom($mail, $password, $db_connection);
         $_SESSION['pseudo'] = pseudo($mail, $password, $db_connection);
-        header('Location:premium.php');
     } // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
     elseif ($data[0] == 0) {
         $erreur = '<br><div class="alert alert-danger alert-dismissible fade show" role="alert">

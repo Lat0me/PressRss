@@ -5,15 +5,12 @@ require_once "function/database/database.php";
 require_once "function/connexion/connexion.php";
 
 session_start();
-if (isset($_SESSION['pseudo'])) {
-    header('Location:premium.php');
-}
 ?>
 
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
-    <title>Home - Press.fr</title>
+    <title>Home - press.fr</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.png"/>
 
 
@@ -46,7 +43,7 @@ if (isset($_SESSION['pseudo'])) {
                 <div class="col-sm-2">
                 </div>
                 <div class="col-sm-8">
-                    <h4 class="card-title">Press.fr</h4>
+                    <h4 class="card-title">press.fr</h4>
                     <p class="card-text">
                         <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#32fffe"></i>
                         <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#4deefe"></i>
@@ -102,7 +99,7 @@ if (isset($_SESSION['pseudo'])) {
 <div id="continuer"></div>
 <ul class="nav nav-tabs justify-content-center" role="tablist" id="navTheme">
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#Technologie" id="textColorNavs" role="tab">Technologie</a>
+        <a class="nav-link active" data-toggle="tab" href="#Technologie" id="textColorNavs" role="tab">Technologie</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#Science" id="textColorNavs" role="tab">Science</a>
@@ -123,7 +120,7 @@ if (isset($_SESSION['pseudo'])) {
 <!--Choix du journal -->
 <div class="tab-content" id="journal">
     <!-- Technologie -->
-    <div class="tab-pane" id="Technologie" role="tabpanel">
+    <div class="tab-pane active" id="Technologie" role="tabpanel">
         <div class="container-fluid">
             <div class="row">
 
@@ -140,7 +137,6 @@ if (isset($_SESSION['pseudo'])) {
                         </div>
                     </a>
                 </div>
-
                 <div class="col-sm-3">
                     <a href="index.php?page=2">
                         <div class="card card-block h-100 justify-content-center">
@@ -293,6 +289,8 @@ if (isset($_SESSION['pseudo'])) {
                 <?php
                 if (isset($_SESSION['pseudo'])) {
                     echo"
+                <a class=\"nav-link active\" href=\"index.php\">Accueil </a>
+                <a class=\"nav-link active\" href=\"premium.php\">100% Abonné </a>
                 <a class=\"nav-link active\" href=\"#\">Articles enregistré </a>";
                 }
                 ?>
