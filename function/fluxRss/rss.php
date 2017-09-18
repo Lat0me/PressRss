@@ -24,7 +24,6 @@ function afficherArticle($title, $link, $date, $id){
                         <h5 class='card-title'>". $title . "</h5>
                         <a href='$link' class='btn btn-primary'>Consultez l'article</a><br>
                         ". $date . "<br>
-                        
                     </div>
                 </div>
             </div>";

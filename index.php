@@ -6,7 +6,6 @@ require_once "function/connexion/connexion.php";
 
 session_start();
 ?>
-
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
@@ -93,7 +92,6 @@ session_start();
         </div>
     </div>
 </div>
-
 
 <!--Choix du Thèmes -->
 <div id="continuer"></div>

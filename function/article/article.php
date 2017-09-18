@@ -28,3 +28,7 @@ function afficherArticle($titre, $lien, $date, $description){
                 </div>
             </div>";
 }
+
+function bestArticle(){
+    
+}
