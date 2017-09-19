@@ -87,12 +87,13 @@ if (!isset($_SESSION['pseudo'])) {
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#cité" id="textColorNavs" role="tab">Cité</a>
     </li>
-    <form class="form-inline">
-        <input class="form-control mr-sm-3" type="text" placeholder="Recherche">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+    <form class="form-inline" method="POST">
+        <input name="mots" class="form-control mr-sm-3" type="text" placeholder="Recherche">
+        <button name="recherche" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
             <i class="fa fa-search" aria-hidden="true"></i>
         </button>
     </form>
+
 </ul>
 <br>
 
@@ -284,6 +285,15 @@ if (!isset($_SESSION['pseudo'])) {
                     <div class="card-block">
                         <div class="container-fluid">
                             <div class="row">
+                                <?php
+                                if (isset($_POST['recherche'])) {
+                                    $mots = $_POST["mots"];
+                                    if (isset($mots)){
+                                        recherche($db_connection, $mots);
+                                    }
+
+                                }
+                                ?>
                                 <?php
                                 if (isset($_GET['page'])) {
                                     $page = $_GET['page'];
