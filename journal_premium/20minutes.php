@@ -12,5 +12,5 @@
 <?php
 $urlJournal = "http://feeds.feedburner.com/20minutes-ActuHightech?format=xml";
 $id = 2;
-dataArticle($id, $db_connection);
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);

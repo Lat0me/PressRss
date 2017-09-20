@@ -6,6 +6,7 @@ require_once "function/database/database.php";
 require_once "function/connexion/connexion.php";
 
 session_start();
+$id_utilisateur = $_SESSION['id'];
 if (!isset($_SESSION['pseudo'])) {
     header('location: index.php');
 }
@@ -276,7 +277,7 @@ if (!isset($_SESSION['pseudo'])) {
                                 if (isset($_POST['recherche'])) {
                                     $mots = $_POST["mots"];
                                     if (isset($mots)){
-                                        recherche($db_connection, $mots);
+                                        recherche($db_connection, $mots, $id_utilisateur);
                                     }
                                 }
                                 if (isset($_GET['page'])) {

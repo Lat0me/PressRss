@@ -11,5 +11,5 @@
 <?php
 $urlJournal = "https://www.lequipe.fr/rss/actu_rss.xml";
 $id = 7;
-dataArticle($id, $db_connection);
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);

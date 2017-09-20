@@ -11,7 +11,7 @@ echo "<div class=\"col-sm-12\">
 </div>";
 $urlJournal = "http://www.01net.com/rss/actualites/culture-medias/";
 $id = 1;
-dataArticle($id, $db_connection);
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);
 
 ?>

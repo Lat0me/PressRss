@@ -1,5 +1,14 @@
 <?php
 
+function id ($mail, $password, $db_connection)
+{
+    $query = 'SELECT id FROM utilisateur WHERE mail = "' . $mail . '" AND mots_de_passe = "' . md5($password) . '";';
+    $req = mysqli_query($db_connection, $query) or die('Erreur SQL !<br />' . $query . '<br />' . mysqli_error());
+    $rid = mysqli_fetch_array($req);
+    $id = $rid[0];
+    return $id;
+}
+
 function nom ($mail, $password, $db_connection)
 {
     $query = 'SELECT nom FROM utilisateur WHERE mail = "' . $mail . '" AND mots_de_passe = "' . md5($password) . '";';
@@ -44,6 +53,7 @@ mail="' . $mail . '" AND mots_de_passe="' . md5($password) . '";';
     if ($data[0] == 1) {
         session_start();
         $_SESSION['mail'] = $mail;
+        $_SESSION['id'] = id($mail, $password, $db_connection);
         $_SESSION['nom'] = nom($mail, $password, $db_connection);
         $_SESSION['prenom'] = prenom($mail, $password, $db_connection);
         $_SESSION['pseudo'] = pseudo($mail, $password, $db_connection);
