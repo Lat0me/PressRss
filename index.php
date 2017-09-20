@@ -41,19 +41,6 @@ session_start();
                 </div>
                 <div class="col-sm-8">
                     <h4 class="card-title">press.fr</h4>
-                    <p class="card-text">
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#32fffe"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#4deefe"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#5eddfc"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#6bcdfb"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#75bcfa"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#7dabf9"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#8499f8"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#9072f3"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#955fe7"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#955de6"></i>
-                        <i class="fa fa-newspaper-o fa-spin fa-4x" aria-hidden="true" style="color:#9949dd"></i>
-                    </p>
                     <a href="#continuer" class="btn btn-primary">Continuez</a>
                 </div>
                 <div class="col-sm-2">

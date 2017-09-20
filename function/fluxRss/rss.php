@@ -36,7 +36,7 @@ function saveArticle ($urlJournal, $id, $db_connection)
     $i = 0;
     foreach ($rss->channel->item as $item) {
         $datetime = date_create($item->pubDate);
-        $date = date_format($datetime, 'd M Y, H');
+        $date = date_format($datetime, "Y/m/d H:i:s");
         $title = $item->title;
         $link = $item->link;
         $description = $item->description;
@@ -46,7 +46,7 @@ function saveArticle ($urlJournal, $id, $db_connection)
 
         $requete = "INSERT INTO article VALUES (NULL, '" . $id . "', '" . $link . "', '" . $titre . "', '" . $desc . "', '"  . $date .  "');";
         // execution de la requte avec des résultats
-        $req = mysqli_query($db_connection, $requete);//or die('Erreur SQL !<br />' . $requete . '<br />' . mysqli_error($db_connection));
+        $req = mysqli_query($db_connection, $requete) or die('Erreur SQL !<br />' . $requete . '<br />' . mysqli_error($db_connection));
 
     }
 }
