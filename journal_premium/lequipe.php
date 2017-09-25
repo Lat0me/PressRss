@@ -9,6 +9,7 @@
     </div>
 </div>
 <?php
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "https://www.lequipe.fr/rss/actu_rss.xml";
 $id = 7;
 dataArticle($id, $db_connection, $id_utilisateur);

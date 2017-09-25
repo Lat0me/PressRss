@@ -258,7 +258,7 @@ if (!isset($_SESSION['pseudo'])) {
                         echo"
                     <a class=\"nav-link active\" href=\"index.php\">Accueil </a>
                     <a class=\"nav-link active\" href=\"premium.php\">100% Abonné</a>
-                    <a class=\"nav-link active\" href=\"#\">Articles enregistré </a>";
+                    <a class=\"nav-link active\" href=\"favoris.php\">Articles enregistré </a>";
                     }
                     ?>
                     <?php

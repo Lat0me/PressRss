@@ -9,7 +9,8 @@
         </div>
     </div>
 </div>
-<?php
+<?
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://www.air-cosmos.com/rss/air-cosmos.xml";
 $id = 3;
 dataArticle($id, $db_connection, $id_utilisateur);

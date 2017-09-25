@@ -2,7 +2,7 @@
 $server = "localhost";
 $database_name = "press.fr";
 $user = "root";
-$pass = "Fantastic27";
+$pass = "";
 $db_connection = mysqli_connect($server, $user, $pass, $database_name);
 if(!$db_connection)
 {

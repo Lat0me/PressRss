@@ -46,7 +46,7 @@ function saveArticle ($urlJournal, $id, $db_connection)
 
         $requete = "INSERT INTO article VALUES (NULL, '" . $id . "', '" . $link . "', '" . $titre . "', '" . $desc . "', '"  . $date .  "');";
         // execution de la requte avec des résultats
-        $req = mysqli_query($db_connection, $requete) or die('Erreur SQL !<br />' . $requete . '<br />' . mysqli_error($db_connection));
+        $req = mysqli_query($db_connection, $requete) or die();
 
     }
 }

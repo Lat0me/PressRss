@@ -9,6 +9,7 @@ echo "<div class=\"col-sm-12\">
         </div>
     </div>
 </div>";
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://www.01net.com/rss/actualites/culture-medias/";
 $id = 1;
 dataArticle($id, $db_connection, $id_utilisateur);

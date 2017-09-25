@@ -10,6 +10,7 @@
     </div>
 </div>
 <?php
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://feeds.feedburner.com/20minutes-ActuHightech?format=xml";
 $id = 2;
 dataArticle($id, $db_connection, $id_utilisateur);
