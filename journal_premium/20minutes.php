@@ -10,8 +10,8 @@
     </div>
 </div>
 <?php
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://feeds.feedburner.com/20minutes-ActuHightech?format=xml";
-rssArticle($urlJournal);
-require_once "database/database.php";
 $id = 2;
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);

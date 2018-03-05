@@ -9,8 +9,8 @@
     </div>
 </div>
 <?php
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://www.lemonde.fr/technologies/rss_full.xml";
-rssArticle($urlJournal);
-require_once "database/database.php";
 $id = 6;
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);

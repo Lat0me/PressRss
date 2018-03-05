@@ -1,15 +1,21 @@
 <!doctype html>
 <?php
-require_once "function/fluxRss/rss.php";
+require_once "function/article/article.php";
+#require_once "function/fluxRss/rss.php";
 require_once "function/database/database.php";
 require_once "function/connexion/connexion.php";
 
 session_start();
+$id_utilisateur = $_SESSION['id'];
+if (!isset($_SESSION['pseudo'])) {
+    header('location: index.php');
+}
+
 ?>
 <html lang="fr">
 <head>
     <meta charset="utf-8"/>
-    <title>Home - press.fr</title>
+    <title>Abonné - press.fr</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/favicon.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
@@ -44,39 +50,12 @@ session_start();
                     <a href="#continuer" class="btn btn-primary">Continuez</a>
                 </div>
                 <div class="col-sm-2">
-                    <?php
-                    if (isset($_SESSION['pseudo'])) {
-                        echo "<div style='display:none;'>";
-                    }
-                    ?>
-                    <h5 class="card-title">Connexion</h5>
-                    <form method="post" action="index.php">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="E-mail" name="mail"><br>
-                        <input type="password" class="form-control" id="exampleInputPassword1"
-                               placeholder="Mots de passe"
-                               name="password"><br>
-                        <button type="submit" class="btn btn-primary" name="connexion">Connexion</button>
-                    </form>
-                    <?php
-                    if (isset($_POST['connexion'])) {
-                        $mail = $_POST["mail"];
-                        $password = $_POST["password"];
-                        connexion($mail, $password, $db_connection);
-                    }
-                    seDeconnecter($db_connection);
-                    ?>
-                    <a href="inscription.php">Inscription</a>
-                    <?php
-                    if (isset($_SESSION['pseudo'])) {
-                        echo "</div>";
-                    }
-                    ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!--Choix du Thèmes -->
 <div id="continuer"></div>
@@ -96,6 +75,12 @@ session_start();
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#cité" id="textColorNavs" role="tab">Cité</a>
     </li>
+    <form class="form-inline" method="POST">
+        <input name="mots" class="form-control mr-sm-3" type="text" placeholder="Recherche">
+        <button name="recherche" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    </form>
 
 </ul>
 <br>
@@ -108,7 +93,7 @@ session_start();
             <div class="row">
 
                 <div class="col-sm-3">
-                    <a href="index.php?page=1">
+                    <a href="premium.php?page=1">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -120,8 +105,9 @@ session_start();
                         </div>
                     </a>
                 </div>
+
                 <div class="col-sm-3">
-                    <a href="index.php?page=2">
+                    <a href="premium.php?page=2">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -133,7 +119,7 @@ session_start();
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=3">
+                    <a href="premium.php?page=3">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -145,7 +131,7 @@ session_start();
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=4">
+                    <a href="premium.php?page=4">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -164,7 +150,7 @@ session_start();
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3">
-                    <a href="index.php?page=5">
+                    <a href="premium.php?page=5">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -177,7 +163,7 @@ session_start();
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=6">
+                    <a href="premium.php?page=6">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -190,7 +176,7 @@ session_start();
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=7">
+                    <a href="premium.php?page=7">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -203,7 +189,7 @@ session_start();
                     </a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="index.php?page=8">
+                    <a href="premium.php?page=8">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -223,7 +209,7 @@ session_start();
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3">
-                    <a href="index.php?page=9">
+                    <a href="premium.php?page=9">
                         <div class="card card-block h-100 justify-content-center">
                             <div class="card-block">
                                 <center>
@@ -234,105 +220,107 @@ session_start();
                             </div>
                         </div>
                     </a>
+                </div>
+            </div>
+        </div>
+        <!-- Presse -->
+        <div class="tab-pane" id="Presse" role="tabpanel">
+            <div class="container-fluid">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+        <!-- cité -->
+        <div class="tab-pane" id="cité" role="tabpanel">
+            <div class="container-fluid">
+                <div class="row">
+
+                </div>
             </div>
         </div>
     </div>
-    <!-- Presse -->
-    <div class="tab-pane" id="Presse" role="tabpanel">
-        <div class="container-fluid">
-            <div class="row">
-
-            </div>
-        </div>
-    </div>
-    <!-- cité -->
-    <div class="tab-pane" id="cité" role="tabpanel">
-        <div class="container-fluid">
-            <div class="row">
-
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-
-
-<!-- Menu -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-1">
-            <?php
-            if (isset($_SESSION['pseudo'])) {
-                $pseudo = $_SESSION['pseudo'];
-
-                echo "<h4>" . $pseudo . "</h4>";
-            }
-            ?>
-            <nav class="nav flex-column">
+    <br>
+    <!-- Menu -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1">
                 <?php
                 if (isset($_SESSION['pseudo'])) {
-                    echo"
-                <a class=\"nav-link active\" href=\"index.php\">Accueil </a>
-                <a class=\"nav-link active\" href=\"premium.php\">100% Abonné </a>
-                <a class=\"nav-link active\" href=\"favoris.php\">Articles enregistré </a>";
+                    $pseudo = $_SESSION['pseudo'];
+
+                    echo "<h4>" . $pseudo . "</h4>";
                 }
                 ?>
-
-                <?php
-                if (!isset($_SESSION['pseudo'])) {
-                    echo"<a class=\"nav-link disabled\" href=\"#\">Votre profil ici !</a>";
-                }
-                ?>
-
-            </nav>
-        </div>
-        <div class="col-sm-11">
-            <div class="card">
-                <div class="card-block">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <?php
-                            if (isset($_GET['page'])) {
-                                $page = $_GET['page'];
-                            } else {
-                                $page = 0;
-                            }
-                            switch ($page) {
-                                case 1:
-                                    include("Journal/20minutes.php");
-                                    break;
-                                case 2:
-                                    include("Journal/lemonde.php");
-                                    break;
-                                case 3:
-                                    include("Journal/01net.php");
-                                    break;
-                                case 4:
-                                    include("Journal/Hitek.php");
-                                    break;
-                                case 5:
-                                    include("Journal/aircosmos.php");
-                                    break;
-                                case 6:
-                                    include("Journal/scienceav.php");
-                                    break;
-                                case 7:
-                                    include("Journal/crns.php");
-                                    break;
-                                case 8:
-                                    include("Journal/sciencepress.php");
-                                    break;
-                                case 9:
-                                    include("Journal/lequipe.php");
-                                    break;
-                            }
-                            ?>
+                <nav class="nav flex-column">
+                    <?php
+                    if (isset($_SESSION['pseudo'])) {
+                        echo"
+                    <a class=\"nav-link active\" href=\"index.php\">Accueil </a>
+                    <a class=\"nav-link active\" href=\"premium.php\">100% Abonné</a>
+                    <a class=\"nav-link active\" href=\"favoris.php\">Articles enregistré </a>";
+                    }
+                    ?>
+                    <?php
+                    if (!isset($_SESSION['pseudo'])) {
+                        echo"<a class=\"nav-link disabled\" href=\"#\">Votre profil ici !</a>";
+                    }
+                    ?>
+                </nav>
+            </div>
+            <div class="col-sm-11">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <?php
+                                if (isset($_POST['recherche'])) {
+                                    $mots = $_POST["mots"];
+                                    if (isset($mots)){
+                                        recherche($db_connection, $mots, $id_utilisateur);
+                                    }
+                                }
+                                if (isset($_GET['page'])) {
+                                    $page = $_GET['page'];
+                                } else {
+                                    $page = 0;
+                                }
+                                switch ($page) {
+                                    case 1:
+                                        include("journal_premium/20minutes.php");
+                                        break;
+                                    case 2:
+                                        include("journal_premium/lemonde.php");
+                                        break;
+                                    case 3:
+                                        include("journal_premium/01net.php");
+                                        break;
+                                    case 4:
+                                        include("journal_premium/Hitek.php");
+                                        break;
+                                    case 5:
+                                        include("journal_premium/aircosmos.php");
+                                        break;
+                                    case 6:
+                                        include("journal_premium/scienceav.php");
+                                        break;
+                                    case 7:
+                                        include("journal_premium/crns.php");
+                                        break;
+                                    case 8:
+                                        include("journal_premium/sciencepress.php");
+                                        break;
+                                    case 9:
+                                        include("journal_premium/lequipe.php");
+                                        break;
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

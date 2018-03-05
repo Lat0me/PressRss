@@ -1,0 +1,33 @@
+#header {
+    background-color:silver;
+}
+
+#footer {
+    background-color: #313131;
+}
+
+#navTheme {
+    background-color: #3b3b3b;
+    color: #b6c0bd;
+}
+
+
+#textColorNavs {
+    color: #b6c0bd;
+}
+
+body{
+    background-color: #d5d5d5;
+}
+
+.horizontal-scroll-wrapper {
+    width: 100px;
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.horizontal-scroll-wrapper > div {
+    width: 100px;
+    height: 100px;
+}

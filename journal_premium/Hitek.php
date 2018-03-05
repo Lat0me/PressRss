@@ -9,8 +9,8 @@
     </div>
 </div>
 <?php
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://hitek.fr/rss";
-rssArticle($urlJournal);
-require_once "database/database.php";
 $id = 5;
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);

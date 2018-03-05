@@ -9,9 +9,9 @@
         </div>
     </div>
 </div>
-<?php
+<?
+$id_utilisateur = $_SESSION['id'];
 $urlJournal = "http://www.air-cosmos.com/rss/air-cosmos.xml";
-rssArticle($urlJournal);
-require_once "database/database.php";
 $id = 3;
+dataArticle($id, $db_connection, $id_utilisateur);
 saveArticle ($urlJournal, $id, $db_connection);
